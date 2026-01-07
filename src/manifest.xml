@@ -1,0 +1,4 @@
+<manifest projecttype="ACCOUNTCUSTOMIZATION">
+  <projectname>clear-duplicate-ns-records</projectname>
+  <frameworkversion>1.0</frameworkversion>
+</manifest>
