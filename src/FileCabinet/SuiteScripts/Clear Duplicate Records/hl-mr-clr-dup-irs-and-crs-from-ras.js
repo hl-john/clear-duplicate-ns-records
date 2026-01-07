@@ -64,10 +64,16 @@ define(["N/record", "N/runtime", "N/search"], /**
             const script = runtime.getCurrentScript();
             const raIds = script.getParameter({ name: "custscript_ras_with_duplicate_children" });
 
+            if (!raIds) {
+                log.error("getInputData: no RAs with duplicate children found");
+                return [];
+            }
+
             const raIdsArray = raIds
                 .split(/\n/)
-                .filter((id) => id.trim() !== "")
-                .map((id) => id.trim());
+                .map((id) => id.trim())
+                .filter((id) => id !== "");
+
             const uniqueRaIds = [...new Set(raIdsArray)];
             log.debug(`getInputData: reading duplicate records for ${uniqueRaIds.length} RAs`, uniqueRaIds);
 
